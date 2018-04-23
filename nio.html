@@ -304,6 +304,9 @@ img {
 <li><a href="#3">直接缓冲区</a></li>
 <li><a href="#4">通道</a></li>
 <li><a href="#5">Charset</a></li>
+<li><a href="#6">nio的非阻塞</a></li>
+<li><a href="#7">管道</a></li>
+<li><a href="#8">nio2</a></li>
 </ul>
 <h2><span id='1'>概述</span></h2>
 <ul>
@@ -577,7 +580,7 @@ public void test3() throws IOException{
 
 </li>
 </ul>
-<h2><span id='4'>Charset</span></h2>
+<h2><span id='5'>Charset</span></h2>
 <pre><code> @Test
 public void test() throws Exception {
     //设置编码
@@ -603,7 +606,7 @@ public void test() throws Exception {
 }
 </code></pre>
 
-<h2><span id='5'>nio的非阻塞</span></h2>
+<h2><span id='6'>nio的非阻塞</span></h2>
 <ul>
 <li>
 <p>传统io	</p>
@@ -882,7 +885,7 @@ public void receive() throws IOException{
 }
 </code></pre>
 
-<h2><span id='6'>管道（Piped）</span></h2>
+<h2><span id='7'>管道（Piped）</span></h2>
 <p><img src="https://i.imgur.com/kRmFpxS.png" /></p>
 <pre><code>@Test
 public void test1() throws IOException{
@@ -908,7 +911,7 @@ public void test1() throws IOException{
 }
 </code></pre>
 
-<h2><span id='7'>nio2</span></h2>
+<h2><span id='8'>nio2</span></h2>
 <p><strong>自动资源管理</strong></p>
 <pre><code>//自动资源管理：自动关闭实现 AutoCloseable 接口的资源
 @Test
