@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<ul>
+<li><a href="#1.1">1.1 xml组成</a></li>
+<li>
+<a href="#1.2">1.2 DTD约束</a>
+<ul>
+<li>
+<a href="#1.2.1">1.2.1 语法</a>
+<ul>
+<li><a href="#1.2.1.1">1.2.1.1 元素定义</a></li>
+<li><a href="#1.2.1.2">1.2.1.2 属性定义</a></li>
+<li><a href="#1.2.1.3">1.2.1.3 实体定义</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#1.3">1.3 schema约束</a>
+<ul>
+<li><a href="#1.3.1">1.3.1 文档语法结构</a></li>
+<li><a href="#1.3.2">1.3.2 元素定义</a></li>
+<li><a href="#1.3.3">1.3.3 属性定义</a></li>
+<li><a href="#1.3.4">1.3.4 node.xsd文件举例</a></li>
+<li><a href="#1.3.5">1.3.5 受约束的文档</a></li>
+<li><a href="#1.3.6">1.3.6 名称空间</a></li>
+</ul>
+</li>
+<li>
+<a href="#1.4">1.4 xml解析</a>
+<ul>
+<li>
+<a href="#1.4.1">1.4.1 jaxp</a>
+<ul>
+<li><a href="#1.4.1.1">1.4.1.1 jaxp之dom解析</a></li>
+<li><a href="#1.4.1.2">1.4.1.2 jaxp之sax解析</a></li>
+</ul>
+</li>
+<li>
+<a href="#1.4.2">1.4.2 dom4j</a>
+<ul>
+<li><a href="#1.4.2.1">1.4.2.1 dom4j操作</a></li>
+<li><a href="#1.4.2.2">1.4.2.2 xpath解析</a></li>
+</ul>
+</li>
+<li><a href="#1.4.3">1.4.3 dom4j-utils</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id='1.'>介绍xml</span></h1>
+<ul>
+<li>标记语言，设计的目的是传输数据，而非显示数据</li>
+<li>标签没被预定义，需要自定义</li>
+<li>由w3c发布，遵守2000发布的1.0规范</li>
+<li>1.0（一般使用的）和1.1（不能向下兼容）两个版本</li>
+<li>是一种通用的数据交换格式</li>
+</ul>
+<blockquote>
+<p>应用</p>
+</blockquote>
+<p>配置文件，提高系统灵活性，避免硬编码。</p>
+<h2><span id='1.1'>xml组成</span></h2>
+<pre><code>文档声明 
+元素
+属性
+注释  
+CDATA区 、特殊字符 
+处理指令（PI:Processing Instruction） 
+</code></pre>
+
+<ul>
+<li>
+<p>文档声明</p>
+<p><code>&lt;?xml version=“1.0” standalone=“yes”?&gt;</code></p>
+</li>
+<li>
+<p>元素</p>
+<ul>
+<li>一个xml文档必须有且仅有一个根元素</li>
+<li>标签不能嵌套</li>
+<li>标签可以是中文</li>
+<li>标签下的内容如果【包含空格和回车】会当成内容解析</li>
+<li>包含主体：<code>&lt;mytag&gt;content&lt;/mytag&gt;</code></li>
+<li>不包含主体：<code>&lt;/mytag&gt;</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+命名规范
+<ul>
+<li>区分大小写，例如，&lt;P&gt;和&lt;p&gt;是两个不同的标记。</li>
+<li>不能以数字或&quot;_&quot; (下划线)开头。</li>
+<li>不能以xml(或XML、或Xml 等)开头。</li>
+<li>不能包含空格。</li>
+<li>名称中间不能包含冒号（:）。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+属性
+<ul>
+<li>&lt;mytag name=“value” …/&gt;</li>
+<li>必须有单引号或双引号</li>
+<li>属性名不能重复</li>
+<li>也可用子元素形式</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>注释</li>
+</ul>
+<p><code>&lt;!--这是注释--&gt;</code></p>
+<hr />
+<ul>
+<li>
+CDATA区
+<ul>
+<li>Character Data</li>
+<li>CDATA区的内容当做普通文本</li>
+<li><code>&lt;![CDATA[内容]]&gt;</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+处理指令
+<ul>
+<li>PI(Processing Instruction)</li>
+<li>
+指挥软件如何解析XML文档。
+<ul>
+<li>XML声明：&lt;?xml version=“1.0” encoding=“GB2312”?&gt;</li>
+<li>xml-stylesheet指令：&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;some.css&quot;?&gt;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id='1.2'>DTD约束</span></h2>
+<ul>
+<li>格式良好的XML：遵循XML语法的XML</li>
+<li>有效的XML：<strong>遵循约束文档的XML</strong></li>
+<li><font color='red'>文件后缀名：.dtd</font></li>
+</ul>
+<blockquote>
+<p>使用DTD三种方式</p>
+</blockquote>
+<ul>
+<li>使用内部DTD</li>
+<li>使用外部DTD</li>
+<li>使用公共DTD</li>
+</ul>
+<blockquote>
+<p>内部</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+
+&lt;!DOCTYPE 书架 [
+    &lt;!ELEMENT 书架 (书+)&gt;
+    &lt;!ELEMENT 书 (书名,作者,售价)&gt;
+    &lt;!ELEMENT 书名 (#PCDATA)&gt;
+    &lt;!ELEMENT 作者 (#PCDATA)&gt;
+    &lt;!ELEMENT 售价 (#PCDATA)&gt;
+]&gt;
+
+&lt;书架&gt;
+    &lt;书&gt;
+        &lt;书名&gt;Java就业培训教程&lt;/书名&gt;
+        &lt;作者&gt;张孝祥&lt;/作者&gt;
+        &lt;售价&gt;39.00元&lt;/售价&gt;
+    &lt;/书&gt;
+    ...
+&lt;/书架&gt;
+</code></pre>
+
+<blockquote>
+<p>外部</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE 书架  SYSTEM  &quot;book.dtd&quot;&gt;
+&lt;书架&gt;
+    &lt;书&gt;
+        &lt;书名&gt;葵花宝典&lt;/书名&gt;
+        &lt;作者&gt;东方不败&lt;/作者&gt;
+        &lt;售价&gt;59.00元&lt;/售价&gt;
+    &lt;/书&gt;
+    &lt;书&gt;
+        &lt;书名&gt;九阳神功&lt;/书名&gt;
+        &lt;作者&gt;张无忌&lt;/作者&gt;
+        &lt;售价&gt;57.00元&lt;/售价&gt;
+    &lt;/书&gt;
+&lt;/书架&gt;
+ ==================================
+《book.dtd》文件
+&lt;!ELEMENT 书架 (书+)&gt;
+&lt;!ELEMENT 书 (书名,作者,售价)&gt;
+&lt;!ELEMENT 书名 (#PCDATA)&gt;
+&lt;!ELEMENT 作者 (#PCDATA)&gt;
+&lt;!ELEMENT 售价 (#PCDATA)&gt;
+</code></pre>
+
+<blockquote>
+<p>公共</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE 根元素 PUBLIC “DTD名称” “DTD文档的URL”&gt;
+如：&lt;!DOCTYPE web-app PUBLIC 
+    &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+    &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;&gt;
+</code></pre>
+
+<h3><span id='1.2.1'>DTD语法</span></h3>
+<ol>
+<li>元素定义</li>
+<li>属性定义</li>
+<li>实体定义</li>
+</ol>
+<h4><span id='1.2.1.1'>元素定义</span></h4>
+<ul>
+<li>
+在DTD文档中使用ELEMENT关键字来声明一个XML元素。
+<ul>
+<li>语法：&lt;!ELEMENT 元素名称 使用规则&gt;</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>(1) 看xml中有多少个元素 ，有几个元素，在dtd文件中写几个 &lt;!ELEMENT&gt;</li>
+<li>
+(2) 判断元素是简单元素还是复杂元素
+<ul>
+<li>
+<font color='red'>（1）复杂元素：有子元素的元素</font><code>&lt;!ELEMENT 元素名称 (子元素)&gt;</code>
+<ul>
+<li>
+子元素出现次数
+<ul>
+<li>+:一次或多次</li>
+<li>*：零次或多次</li>
+<li>?:零次或一次</li>
+</ul>
+</li>
+<li>
+子元素出现受到的限制
+<ul>
+<li>
+如果子元素用【逗号分开】，说明必须按照声明顺序去编写XML文档。
+<ul>
+<li>如: &lt;!ELEMENT FILE (TITLE,AUTHOR,EMAIL)</li>
+</ul>
+</li>
+<li>
+如果子元素用【“|”分开】，说明任选其一。
+<ul>
+<li>如:&lt;!ELEMENT FILE (TITLE|AUTHOR|EMAIL) </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<font color='red'>（2）简单元素：没有子元素</font><code>&lt;!ELEMENT 元素名称 (#PCDATA)&gt;</code>
+<ul>
+<li>(#PCDATA):指示元素的主体内容只能是普通的文本.(Parsed Character Data)</li>
+<li>EMPTY：用于指示元素的主体为空。比如<br/></li>
+<li>ANY:用于指示元素的主体内容为任意类型。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><img src="https://i.imgur.com/0KjInjA.png" /></p>
+<h4><span id='1.2.1.2'>属性定义</span></h4>
+<pre><code>&lt;!ATTLIST 元素名称
+类别 CDATA #REQUIRED 必须的
+颜色 CDATA #IMPLIED  可选的
+&gt;
+
+如：
+
+&lt;!ATTLIST 商品
+属性名 属性类型 属性约束
+属性名 属性类型 属性约束
+。。。。。。
+&gt;  
+对应===&gt; &lt;商品 类别=“服装” 颜色=“黄色”/&gt;
+
+================
+
+属性值类型：
+（1）CDATA：表示属性的取值为普通的文本字符串
+（2）ENUMERATED (DTD没有此关键字)：表示枚举，只能从枚举列表中任选其一，如(鸡肉|牛肉|猪肉|鱼肉)
+（3）ID:表示属性的取值不能重复,属性的值只能由字母，下划线开始，不能出现空白字符
+
+属性约束设置说明
+（1）#REQUIRED：表示该属性必须出现
+（2）#IMPLIED：表示该属性可有可无
+（3）#FIXED:表示属性的取值为一个固定值。语法：#FIXED &quot;固定值&quot;
+（4）default值：表示属性的取值为该默认值
+
+ ===============
+&lt;!ATTLIST 页面作者 
+     姓名 CDATA #IMPLIED 
+     年龄 CDATA #IMPLIED 
+     联系信息 CDATA #REQUIRED 
+     网站职务 CDATA #FIXED &quot;页面作者&quot; 
+     个人爱好 CDATA &quot;上网&quot;
+
+ ===========       #综合举例#      ============
+
+&lt;?xml version = &quot;1.0&quot; encoding=&quot;GB2312&quot; standalone=&quot;yes&quot;?&gt;
+&lt;!DOCTYPE 购物篮 [
+    &lt;!ELEMENT 肉 EMPTY&gt;
+    &lt;!ATTLIST 肉 品种 ( 鸡肉 | 牛肉 | 猪肉 | 鱼肉 ) &quot;鸡肉&quot;&gt;
+]&gt; 
+&lt;购物篮&gt;
+    &lt;肉 品种=&quot;鱼肉&quot;/&gt;
+    &lt;肉 品种=&quot;牛肉&quot;/&gt;
+    &lt;肉/&gt;
+&lt;/购物篮&gt;
+</code></pre>
+
+<h4><span id='1.2.1.3'>实体定义</span></h4>
+<ul>
+<li>实体用于为一段内容创建一个别名，以后在XML文档中就可以使用别名引用这段内容了</li>
+<li>在DTD定义中，一条&lt;!ENTITY …&gt;语句用于定义一个实体。</li>
+</ul>
+<hr />
+<pre><code>(1) DTD中定义:
+&lt;!ENTITY copyright “传智播客版权所有”&gt;
+(2) XML中引用:
+&amp;copyright;
+</code></pre>
+
+<h2><span id='1.3'>schema约束</span></h2>
+<ul>
+<li>其出现是为了克服 DTD 的局限性	</li>
+<li>XML Schema是用一套预先规定的XML元素和属性创建的，这些元素和属性定义了XML文档的结构和内容模式。 XML Schema规定XML文档实例的结构和每个元素/属性的数据类</li>
+<li><font color='red'>XML Schema 文件自身就是一个XML文件，但它的扩展名通常为.xsd</font></li>
+<li><font color='red'>作为一个xml文件，其根节点为<code>&lt;schma&gt;&lt;/schema&gt;</code></font></li>
+</ul>
+<p><img src="https://i.imgur.com/S9OA39B.png" /></p>
+<hr />
+<blockquote>
+<p>DTD 【VS】 Schema</p>
+</blockquote>
+<pre><code>XML Schema符合XML语法结构。 
+DOM、SAX等XML API很容易解析出XML Schema文档中的内容。 
+XML Schema对名称空间支持得非常好。 
+XML Schema比XML DTD支持更多的数据类型，并支持用户自定义新的数据类型。 
+XML Schema定义约束的能力非常强大，可以对XML实例文档作出细致的语义限制。
+XML Schema不能像DTD一样定义实体，比DTD更复杂，但Xml Schema现在已是w3c组织的标准，它正逐步取代DTD。  
+</code></pre>
+
+<h3><span id='1.3.1'>schema文档语法结构</span></h3>
+<h4>根节点</h4>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;schema&gt; ... ... 
+&lt;/schema&gt; 
+</code></pre>
+
+<h4>常见形式</h4>
+<pre><code>&lt;schema xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot; 
+targetNamespace=&quot;http://www.cqupt.cn/hg_demo&quot; 
+elementFormDefault=&quot;qualified&quot;&gt;
+</code></pre>
+
+<ul>
+<li>
+xmlns=&quot;http://www.w3.org/2001/XMLSchema
+<ul>
+<li>w3c提供的命名空间，表示使用w3c预定义的标签</li>
+</ul>
+</li>
+<li>
+targetNamespace
+<ul>
+<li>区分schema重名，相当于包名</li>
+</ul>
+</li>
+<li>
+elementFormDefault=&quot;qualified&quot;
+<ul>
+<li>指出任何 XML 实例文档所使用的且在此 schema 中声明过的元素必须被命名空间限定 </li>
+</ul>
+</li>
+</ul>
+<h3><span id='1.3.2'>元素的定义</span></h3>
+<ul>
+<li>
+简易元素：仅包含文本的元素。它不会包含任何其他的元素或属性。 
+<ul>
+<li><code>&lt;element name=&quot;xxx&quot; type=“string&quot;/&gt;</code></li>
+<li><code>maxOccurs=&quot;unbounded&quot;</code>&emsp;这个属性表示出现次数无限制</li>
+</ul>
+</li>
+<li>
+复杂元素：包含子元素或者属性的元素
+<ul>
+<li><code>&lt;sequence&gt;</code> &emsp; 顺序</li>
+<li><code>&lt;all&gt;</code>&emsp; 元素仅出现一次</li>
+<li><code>&lt;choice&gt;</code>&emsp; 元素仅出现一个（枚举）</li>
+<li><code>&lt;any&gt;</code>&emsp; 任意元素</li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code>    &lt;complexType&gt;  //表示复杂类型
+      &lt;sequence&gt;   //表示有顺序
+        &lt;element name=&quot;to&quot; type=&quot;string&quot; /&gt;
+        &lt;element name=&quot;from&quot; type=&quot;string&quot; /&gt;
+       &lt;/sequence&gt;
+    &lt;/complexType&gt;
+</code></pre>
+
+<hr />
+<pre><code>    ## 常用的类型（type）  ##
+         string 
+         decimal 
+         integer 
+         boolean 
+         date 
+         time
+</code></pre>
+
+<h3><span id='1.3.3'>属性的定义</span></h3>
+<ul>
+<li>放在</complexType>之前，作为<code>&lt;complexType&gt;&lt;/complexType&gt;</code>的子标签与<code>&lt;sequence&gt;</code>并列</li>
+<li><code>&lt;attribute name=&quot;id1&quot; type=&quot;int&quot; use=&quot;required&quot;&gt;&lt;/attribute&gt;</code></li>
+</ul>
+<hr />
+<pre><code>    &lt;element name=&quot;note&quot;&gt;
+        // （1）定义子标签
+         &lt;complexType&gt;
+              &lt;sequence&gt;
+                  &lt;element name=&quot;to&quot; type=&quot;string&quot; /&gt;
+                  &lt;element name=&quot;from&quot; type=&quot;string&quot; /&gt;
+                  &lt;element name=&quot;heading&quot; type=&quot;string&quot; /&gt;
+                  &lt;element name=&quot;body&quot; type=&quot;string&quot; /&gt;
+              &lt;/sequence&gt;
+         &lt;/complexType&gt;
+
+        // （2）定义父标签的属性
+        &lt;attribute name=&quot;id1&quot; type=&quot;int&quot; use=&quot;required&quot;&gt;&lt;/attribute&gt;
+   &lt;/element&gt;
+</code></pre>
+
+<h3><span id='1.3.4'>node.xsd文件举例</span></h3>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;schema xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot;
+
+//注意：!!!!!!定义的名称空间!!!!!!  
+
+targetNamespace=&quot;http://www.cqupt.cn/hg_demo&quot; 
+elementFormDefault=&quot;qualified&quot;&gt;
+
+ &lt;element name=&quot;note&quot;&gt;
+     &lt;complexType&gt;
+          &lt;sequence&gt;
+              &lt;element name=&quot;to&quot; type=&quot;string&quot; /&gt;
+              &lt;element name=&quot;from&quot; type=&quot;string&quot; /&gt;
+              &lt;element name=&quot;heading&quot; type=&quot;string&quot; /&gt;
+              &lt;element name=&quot;body&quot; type=&quot;string&quot; /&gt;
+          &lt;/sequence&gt;
+     &lt;/complexType&gt;
+   &lt;/element&gt;
+
+&lt;/schema&gt;
+</code></pre>
+
+<h3><span id='1.3.5'>受约束的xml文件</span></h3>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;note
+【xmlns:xsi】=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+【xmlns】=&quot;http://www.cqupt.cn/hg_demo&quot; 
+【xsi:schemaLocation】=&quot;http://www.cqupt.cn/hg_demo node.xsd&quot;&gt;
+
+
+ &lt;to&gt;George&lt;/to&gt;
+ &lt;from&gt;John&lt;/from&gt;
+ &lt;heading&gt;Reminder&lt;/heading&gt;
+ &lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+
+&lt;/note&gt;
+</code></pre>
+
+<ul>
+<li>
+使用w3c名称空间标明该文档为被约束的文档
+<ul>
+<li>xmlns:xsi =&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </li>
+</ul>
+</li>
+<li>
+指定使用的schema的名称空间
+<ul>
+<li>xmlns =&quot;http://www.cqupt.cn/hg_demo&quot; </li>
+</ul>
+</li>
+<li>
+指定使用的schema的路径 --&gt;【node.xsd】
+<ul>
+<li>xsi:schemaLocation=&quot;http://www.cqupt.cn/hg_demo node.xsd&quot;&gt;</li>
+</ul>
+</li>
+</ul>
+<h3><span id='1.3.6'>名称空间</span></h3>
+<h4><font color='blu'>名称空间的概念</font></h4>
+<p><img src="https://i.imgur.com/yhF4VSt.png" /></p>
+<h4><font color='red'>使用名称空间引入Schema</font></h4>
+<p><img src="https://i.imgur.com/DwdJL4O.png" /></p>
+<h4><font color='red'>使用默认名称空间</font></h4>
+<p><img src="https://i.imgur.com/2Lg7IUx.png" /></p>
+<h4><font color='red'>引入多个XML Schema文档</font></h4>
+<p><img src="https://i.imgur.com/r9iK1Ir.png" /></p>
+<h2><span id='1.4'>xml解析</span></h2>
+<blockquote>
+<p>解析方式</p>
+</blockquote>
+<ol>
+<li>
+dom解析
+<ul>
+<li>w3c推荐的</li>
+<li>可能或导致内存溢出</li>
+<li>方便进行增删改</li>
+</ul>
+</li>
+<li>
+sax解析
+<ul>
+<li>基于事件驱动，边读边解析</li>
+<li>不会内存溢出</li>
+<li>不能进行增删改</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>针对上述两种解析方式---解析开发包</p>
+</blockquote>
+<ol>
+<li>
+jaxp(Java API for XML Processing)
+<ul>
+<li>javase的内容	</li>
+</ul>
+</li>
+<li>
+dom4j【！！开发中使用这个！！】
+<ul>
+<li>开源组织推出解析开发包</li>
+</ul>
+</li>
+<li>
+jdom
+<ul>
+<li>dom4j就是从这个组织中脱离单飞，dom4j反倒做得比较优秀</li>
+</ul>
+</li>
+</ol>
+<h3><span id='1.4.1'>jaxp</span></h3>
+<ul>
+<li>org.w3c.dom:提供DOM方式解析XML的标准接口</li>
+<li>org.xml.sax:提供SAX方式解析XML的标准接口</li>
+<li>javax.xml:提供了解析XML文档的类</li>
+</ul>
+<hr />
+<ul>
+<li><font color='red'>javax.xml.parsers包中，针对dom和sax解析提供两个工厂类</font></li>
+<li>
+DocumentBuilderFactory
+<ul>
+<li>| -- DocumentBuilder</li>
+</ul>
+</li>
+<li>
+SAXParserFactory
+<ul>
+<li>| -- SAXParser</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4><span id='1.4.1.1'>jaxp之dom解析</span></h4>
+<p><strong>下面例子将用到的person.xml文件</strong></p>
+<pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;person&gt;
+    &lt;name&gt;zhangsan&lt;/name&gt;
+    &lt;name&gt;zhangsan&lt;/name&gt;
+    &lt;name&gt;zhangsan&lt;/name&gt;
+    &lt;age&gt;20&lt;/age&gt; 
+&lt;/person&gt;
+</code></pre>
+
+<p><strong>（##）创建解析器，获取Document对象，后续调用document对象的方法</strong></p>
+<pre><code>   //创建解析器工厂
+    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+    //创建解析器
+    DocumentBuilder builder = builderFactory.newDocumentBuilder();
+    //得到document
+    Document document = builder.parse(&quot;src/person.xml&quot;);
+</code></pre>
+
+<ul>
+<li>Document的父类是Node，document中找不到的方法到Node中找</li>
+<li>
+Document的方法
+<ul>
+<li>
+getElementsByTagName(String tagname)  --&gt; 返回NodeList
+<ul>
+<li>nodeList.length();</li>
+<li>nodeList.item(int index); //index角标从0开始</li>
+</ul>
+</li>
+<li>createElement(String tagName) --&gt; 创建标签</li>
+<li>createTextNode(String data)   --&gt; 创建文本</li>
+<li>appendChild(Node newChild) </li>
+<li>removeChild(Node oldChild)</li>
+<li>getParentNode() </li>
+<li>getTextContent()、setTextContent()</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong><font color='red'>查询</strong></font></p>
+</blockquote>
+<p><strong>示例（1）获取所有名为name的标签的内容</strong></p>
+<p>node.getTextContent();方法</p>
+<pre><code>    //得到name元素
+    NodeList list = document.getElementsByTagName(&quot;name&quot;);
+    //遍历集合
+    for(int i=0;i&lt;list.getLength();i++) {
+        Node name1 = list.item(i); //得到每一个name元素
+        //得到name元素里面的值
+        String s = name1.getTextContent();
+        System.out.println(s);
+    }
+</code></pre>
+
+<p><strong>示例（2）查询xml中【第一个】name元素的值</strong></p>
+<p>nodeList.item(1);方法</p>
+<pre><code>NodeList list = document.getElementsByTagName(&quot;name&quot;);
+//使用下标 得到第一个元素
+Node name1 = list.item(1);
+//得到name里面的具体的值
+String s1 = name1.getTextContent();
+</code></pre>
+
+<blockquote>
+<p><strong><font color='red'>删除节点</strong></font></p>
+</blockquote>
+<p>1.找到要删除的节点</p>
+<p>2.再通过该节点找到父亲节点</p>
+<p>3.通过父亲节点的方法删除子节点</p>
+<pre><code>//得到sex元素
+Node sex1 = document.getElementsByTagName(&quot;sex&quot;).item(0);
+//得到sex1父节点
+Node p1 = sex1.getParentNode();
+//删除操作
+p1.removeChild(sex1);
+</code></pre>
+
+<blockquote>
+<p><strong><font color='red'>添加节点</strong></font></p>
+</blockquote>
+<p>p1下面（末尾）添加 <sex>nv</sex></p>
+<pre><code>//（1）得到第一个p1
+Node p1 = document.getElementsByTagName(&quot;p1&quot;).item(0);
+
+//（2）创建标签+创建文本
+Element sex1 = document.createElement(&quot;sex&quot;);
+Text text1 = document.createTextNode(&quot;nv&quot;);
+sex1.appendChild(text1);
+
+//（3）把sex1添加到p1下面
+p1.appendChild(sex1);
+</code></pre>
+
+<blockquote>
+<p><strong><font color='red'>修改节点的内容值</strong></font></p>
+</blockquote>
+<p>node.setTextContent();方法</p>
+<blockquote>
+<p><strong><font color='red'>回写</strong></font></p>
+</blockquote>
+<pre><code>TransformerFactory transformerFactory = TransformerFactory.newInstance();
+Transformer transformer = transformerFactory.newTransformer();
+
+//将关联的文档对象【document】，写到指定的文件中【person.xml】
+transformer.transform(new DOMSource(document), new StreamResult(&quot;person.xml&quot;)); 
+</code></pre>
+
+<h4><span id='1.4.1.2'>jaxp之sax解析</span></h4>
+<ol>
+<li><font color='red'>只能查询，不能增删改的改动，自然也不涉及回写</font></li>
+<li>
+san解析分成两部分
+<ul>
+<li><font color='red'>解析器</font></li>
+<li>
+<font color='red'>事件处理器</font>
+<ul>
+<li>继承DefaultHandler类</li>
+<li>自己编写一个类，重写方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于事件驱动，每当某一事件发生会调用对应的回调函数(相当于事件监听机制)</li>
+</ol>
+<hr />
+<p><strong>解析器</strong></p>
+<pre><code>SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+//创建解析器
+SAXParser saxParser = saxParserFactory.newSAXParser();
+//执行parse方法
+//【传入自定义的处理器对象】
+saxParser.parse(&quot;/p1.xml&quot;, new MyDefaultHandler()); 
+</code></pre>
+
+<p><strong>自定义处理器【需要继承MyDefaultHandler类】</strong></p>
+<pre><code>class MyDefaultHandler extends DefaultHandler {
+
+    @Override
+    public void startElement(String uri, String localName, String qName,
+            Attributes attributes) throws SAXException {
+        System.out.print(&quot;&lt;&quot;+qName+&quot;&gt;&quot;);
+    }
+
+    @Override
+    public void characters(char[] ch, int start, int length)
+            throws SAXException {
+        System.out.print(new String(ch,start,length));
+    }
+
+    @Override
+    public void endElement(String uri, String localName, String qName)
+            throws SAXException {
+        System.out.print(&quot;&lt;/&quot;+qName+&quot;&gt;&quot;);
+    }
+
+}
+</code></pre>
+
+<h3><span id='1.4.2'>dom4j</span></h3>
+<ul>
+<li>Dom4j是由早期开发JDOM的人分离出来而后独立开发的。与JDOM不同的是，dom4j使用接口和抽象基类，虽然Dom4j的API相对要复杂一些，但它提供了比JDOM更好的灵活性。 </li>
+<li>使用Dom4j开发，需下载dom4j相应的jar文件</li>
+</ul>
+<p><strong>下面将用到的xml文件</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;person&gt; 
+  &lt;p1 id1=&quot;aaaa&quot;&gt; 
+    &lt;name&gt;zhangsan&lt;/name&gt;  
+    &lt;age&gt;300&lt;/age&gt;  
+    &lt;sex&gt;nv&lt;/sex&gt; 
+  &lt;/p1&gt;  
+
+  &lt;p1&gt; 
+    &lt;name&gt;lisi&lt;/name&gt;  
+    &lt;age&gt;30&lt;/age&gt; 
+  &lt;/p1&gt; 
+&lt;/person&gt;
+</code></pre>
+
+<h4><span id='1.4.2.1'>dom4j操作</span></h4>
+<blockquote>
+<p>获取document对象的三种方式</p>
+</blockquote>
+<p><strong>Document的父接口Node</strong></p>
+<pre><code>1.读取XML文件,获得document对象 【使用这个】
+ SAXReader reader = new SAXReader();
+ Document document = reader.read(new File(&quot;input.xml&quot;));
+
+2.解析XML形式的文本,得到document对象.
+ String text = &quot;&lt;members&gt;&lt;/members&gt;&quot;;             
+ Document document = DocumentHelper.parseText(text);
+
+3.主动创建document对象.
+ Document document = DocumentHelper.createDocument();  
+//创建根节点
+ Element root = document.addElement(&quot;members&quot;);
+</code></pre>
+
+<p><strong>通过document对象获取根节点</strong></p>
+<pre><code>`Element root = document.getRootElement();`
+</code></pre>
+
+<blockquote>
+<p><font color='red'>查询</font></p>
+</blockquote>
+<p>element对象方法</p>
+<pre><code>`root.element(&quot;tagName&quot;)` //获取根节点下【第一个】该名称的标签
+
+`root.elements(&quot;tagName&quot;)` //获取根节点下【第一层】该名称的标签
+
+`root.elements()` //获取根节点下【所有第一层】的标签
+</code></pre>
+
+<blockquote>
+<p><font color='red'>添加</font></p>
+</blockquote>
+<pre><code>    //得到第一个p1元素
+    Element p1 = root.element(&quot;p1&quot;);
+    //在p1下面直接添加元素
+    Element sex1 = p1.addElement(&quot;sex&quot;);
+    //在sex下面添加文本
+    sex1.setText(&quot;nv&quot;);
+</code></pre>
+
+<blockquote>
+<p><font color='red'>特定角标位置添加</font></p>
+</blockquote>
+<p>使用DocumentHelper</p>
+<pre><code>    //(1)获取到第一个p1下的子元素--list
+    Element p1 = root.element(&quot;p1&quot;);
+    List&lt;Element&gt; list = p1.elements();
+
+    //(2)创建元素 使用
+    Element school = DocumentHelper.createElement(&quot;school&quot;);
+    school.setText(&quot;ecit&quot;); 
+
+    //(3)在特定位置添加
+    list.add(1, school);
+</code></pre>
+
+<blockquote>
+<p><font color='red'>删除</font></p>
+</blockquote>
+<p><code>age2.getParent().remove(age2);</code></p>
+<blockquote>
+<p><font color='red'>修改内容</font></p>
+</blockquote>
+<p><code>name2.setText(&quot;东方不败&quot;);</code></p>
+<h4>操作属性</h4>
+<pre><code>获取属性值
+String aa = ele.attributeValue(&quot;aa&quot;);
+</code></pre>
+
+<hr />
+<pre><code>设置属性名和属性值（之前没有）
+ele.addAttribute(&quot;name&quot;, &quot;sitinspring&quot;);
+</code></pre>
+
+<hr />
+<pre><code>设置（修改）属性值
+Attribute attribute = ele.attribute(&quot;name&quot;);
+attribute.setText(&quot;sitinspring&quot;);
+</code></pre>
+
+<h4>回写</h4>
+<p>1.文档中全为英文,不设置编码,直接写入的形式.</p>
+<pre><code>XMLWriter xmlWriter = new  XMLWriter(newFileOutputStream(&quot;src/persons.xml&quot;));
+writer.write(document);
+writer.close();
+</code></pre>
+
+<p>2.文档中含有中文,设置编码格式写入的形式；设置回写xml格式化方式 </p>
+<pre><code>//设置格式化方式
+OutputFormat format = OutputFormat.createPrettyPrint();
+// 指定XML编码                   
+format.setEncoding(“utf-8&quot;);       
+XMLWriter writer = new XMLWriter(newFileWriter(&quot;output.xml&quot;),format);
+writer.write(document);writer.close();
+</code></pre>
+
+<h4><span id='1.4.2.2'>xpath解析</span></h4>
+<ul>
+<li>默认的情况下，dom4j不支持xpath</li>
+<li><font color='red'>需要导包：jaxen-1.1-beta-6.jar</font></li>
+<li>
+<font color='red'>dom4j提供两个方法支持xpath</font>
+<ul>
+<li>
+docuemnt.selectNodes(&quot;xpath表达式&quot;)；
+<ul>
+<li>获取多个节点</li>
+</ul>
+</li>
+<li>
+docuemnt.selectSingleNode(&quot;xpath表达式&quot;)；
+<ul>
+<li>获取单个节点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code>* 第一种形式
+    /AAA/DDD/BBB： 表示一层一层的，AAA下面 DDD下面的BBB
+* 第二种形式
+    //BBB： 表示和这个名称相同，表示只要名称是BBB，都得到
+* 第三种形式
+    /*: 所有元素
+* 第四种形式
+    **　BBB[1]：　表示第一个BBB元素
+    ××　BBB[last()]：表示最后一个BBB元素
+* 第五种形式
+    ** //BBB[@id]： 表示只要BBB元素上面有id属性，都得到
+* 第六种形式
+    ** //BBB[@id='b1'] 表示元素名称是BBB,在BBB上面有id属性，并且id的属性值是b1
+</code></pre>
+
+<h3><span id='1.4.3'>dom4j-utils</span></h3>
+<pre><code>public class Dom4jUtils {
+
+public static final String PATH = &quot;src/p1.xml&quot;;
+
+//返回document
+public static Document getDocument(String path) {
+    try {
+        //创建解析器
+        SAXReader reader = new SAXReader();
+        //得到document
+        Document document = reader.read(path);
+        return document;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+
+//回写xml的方法
+public static void xmlWriters(String path,Document document) {
+    try {
+        OutputFormat format = OutputFormat.createPrettyPrint();
+        XMLWriter xmlWriter = new XMLWriter(new FileOutputStream(path), format);
+        xmlWriter.write(document);
+        xmlWriter.close();
+    }catch(Exception e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
