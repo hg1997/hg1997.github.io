@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>shiro</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<ul>
+<li><a href="#1.">1. shiro介绍</a></li>
+<li>
+<a href="#2.">2. 架构</a>
+<ul>
+<li><a href="#2.1">2.1 外部来看</a></li>
+<li><a href="#2.2">2.2 内部来看</a></li>
+</ul>
+</li>
+<li><a href="#3.">3. Hello World</a></li>
+<li><a href="#4.">4. 整合spring</a></li>
+<li>
+<a href="#5.">5. 认证（登录）</a>
+<ul>
+<li><a href="#5.1">5.1 认证思路</a></li>
+<li><a href="#5.2">5.2 代码（1）</a></li>
+<li><a href="#5.3">5.3 代码（2）-- MD5加密</a></li>
+<li><a href="#5.1">5.4 代码（3）-- MD5盐值加密</a></li>
+<li><a href="#5.5">5.5 多个realm+认证策略</a></li>
+</ul>
+</li>
+<li>
+<a href="#6.">6. 授权</a>
+<ul>
+<li><a href="#6.1">6.1 三种授权方式</a></li>
+<li><a href="#6.2">6.2 拦截器</a></li>
+<li>
+<a href="#6.3">6.3 授权流程</a>
+<ul>
+<li><a href="#6.3.1">6.3.1 编程式-代码</a>	</li>
+<li><a href="#6.3.2">6.3.2 注解式</a>	</li>
+<li><a href="#6.3.3">6.3.3 jsp-标签</a>	</li>
+</ul>
+</li>
+<li><a href="#6.4">6.4 将filterChainDefinitions配置到Map中</a></li>
+</ul>
+</li>
+<li><a href="#7.">7. shiro-会话管理</a></li>
+<li><a href="#8.">8. 缓存</a></li>
+<li><a href="#9.">9. remember me</a></li>
+</ul>
+<h1><span id='1.'>介绍<span></h1>
+<ul>
+<li>apache的一个安全（权限）框架。</li>
+<li>可以完成：认证(authentication)、授权(authorization)、加密、会话管理(session management)、与Web 集成、 缓存(caching)
+等</li>
+<li>下载：http://shiro.apache.org/</li>
+</ul>
+<p><img src="https://i.imgur.com/I7jRS6d.png" /></p>
+<h1><span id='2.'>架构<span></h1>
+<h2><span id='2.1'>外部来看<span></h2>
+<p><img src="https://i.imgur.com/hQ0ap0W.png" /></p>
+<p><img src="https://i.imgur.com/OwJMUXF.png" /></p>
+<h2><span id='2.2'>内部来看<span></h2>
+<p><img src="https://i.imgur.com/L6gWTUO.png" />
+<img src="https://i.imgur.com/59V1s1F.png" /></p>
+<h1><span id='3.'>Hello World<span></h1>
+<pre><code>1. 获取当前的Subject
+ Subject subject = SecurityUtils.getSubject();
+
+2. 通过subject获取session
+Session session = subject.getSession();
+  ## session.setAttribute(&quot;xx&quot;,&quot;xxx&quot;);
+  ## session.getAttribute(&quot;xx&quot;);
+
+3. 检测用户是否已经认证（即是否已经登录：subject.isAuthenticated()）
+if (!subject.isAuthenticated()) {
+        // 把用户名和密码封装为 UsernamePasswordToken 对象
+        UsernamePasswordToken token = new UsernamePasswordToken(&quot;lonestarr&quot;, &quot;vespa&quot;);
+
+        // rememberme
+        token.setRememberMe(true);
+
+        try {
+            currentUser.login(token);   // 执行登录. 
+        } 
+        catch (UnknownAccountException uae) {
+             //没有指定账户
+        } catch (IncorrectCredentialsException ice) {
+            // 若账户存在, 但密码不匹
+        } catch (LockedAccountException lae) {
+            // 账户被锁定 
+        } catch (AuthenticationException ae) {
+           //AuthenticationException 所有认证异常的父类
+        }
+    }
+
+4. 用户是否有某个角色
+    subject.hasRole(&quot;schwartz&quot;)
+
+5. 用户是否有某个行为
+    subject.isPermitted(&quot;lightsaber:weild&quot;)
+
+6. 用户是否有某个具体行为（删除名叫张三的用户）
+    subject.isPermitted(&quot;user:delete:zhangsan&quot;)
+
+7. 登出
+    subject.logout();
+</code></pre>
+
+<h1><span id='4.'>整合spring</span></h1>
+<p>(1).web.xml中配置shiroFilter</p>
+<hr />
+<pre><code>&lt;filter&gt;  
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;  
+    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;  
+    &lt;init-param&gt;  
+        &lt;param-name&gt;targetFilterLifecycle&lt;/param-name&gt;  
+        &lt;param-value&gt;true&lt;/param-value&gt;  
+    &lt;/init-param&gt;  
+&lt;/filter&gt; 
+
+ &lt;filter-mapping&gt;  
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;  
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;  
+&lt;/filter-mapping&gt; 
+</code></pre>
+
+<p>(2). 定义shiro的配置文件【spring-shiro.xml】</p>
+<ul>
+<li><font color='red'> 在spring的配置文件applicationContext.xml导入<code>&lt;import resource=&quot;spring-shiro.xml&quot;/&gt;</code></font></li>
+</ul>
+<hr />
+<p><strong>(1) 配置SecurityManager</strong></p>
+<pre><code>1. 先配置SecurityManager
+    1.1 依赖cacheManager
+    1.2 依赖authenticator
+    1.3 依赖自定义的Realm（自定义的接口类实现org.apache.shiro.realm.Realm）
+
+//配置cacheManager【需要ehcache.xml配置文件】
+&lt;bean id=&quot;cacheManager&quot;class=&quot;org.apache.shiro.cache.ehcache.EhCacheManager&quot;&gt;
+      &lt;property name=&quot;cacheManagerConfigFile&quot; value=&quot;classpath:ehcache.xml&quot;/&gt; 
+&lt;/bean&gt;
+
+//配置authenticator
+&lt;bean id=&quot;authenticator&quot; class=&quot;org.apache.shiro.authc.pam.ModularRealmAuthenticator&quot;&gt;
+    &lt;property name=&quot;authenticationStrategy&quot;&gt;
+        &lt;bean class=&quot;org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy&quot;&gt;&lt;/bean&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+//配置【自定义的Realm】
+&lt;bean id=&quot;realmDemo&quot; class=&quot;edu.cqupt.shiro.RealmDemo&quot;&gt;&lt;/bean&gt;
+
+//最后配置securityManager
+&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;
+    // 1.1
+    &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot;/&gt;
+    //1.2
+    &lt;property name=&quot;authenticator&quot; ref=&quot;authenticator&quot;&gt;&lt;/property&gt;
+    // 1.3
+    &lt;property name=&quot;realms&quot;&gt;
+        &lt;list&gt;
+            &lt;ref bean=&quot;realmDemo&quot;/&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+
+    //[ remember me ]
+    &lt;property name=&quot;rememberMeManager.cookie.maxAge&quot; value=&quot;10&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p><strong>(2) 配置LifecycleBeanPostProcessor</strong>	</p>
+<pre><code>可以自动的来调用配置在 Spring IOC 容器中 shiro bean 的生命周期方法
+&lt;bean id=&quot;lifecycleBeanPostProcessor&quot; class=&quot;org.apache.shiro.spring.LifecycleBeanPostProcessor&quot;/&gt;
+</code></pre>
+
+<p><strong>(3) 启动IOC容器中使用 shiro 的注解，必须在配置了 LifecycleBeanPostProcessor 之后才可以使用</strong>	</p>
+<pre><code>&lt;bean class=&quot;org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator&quot;
+      depends-on=&quot;lifecycleBeanPostProcessor&quot;/&gt;
+&lt;bean class=&quot;org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor&quot;&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p><strong>(4) 配置shiroFilter</strong></p>
+<ul>
+<li>必须和 web.xml 文件中配置的 DelegatingFilterProxy 的 &lt;filter-name&gt; 一致.</li>
+<li>若不一致, 则会抛出: NoSuchBeanDefinitionException. </li>
+<li>
+Shiro 会到 IOC 容器中查找和 &lt;filter-name&gt; 名字对应的 filter bean.
+<ul>
+<li>如果实在不一致，也可通过在web.xml中在filter配置的地方加上初始化参数</li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code> &lt;init-param&gt;
+   &lt;param-name&gt;targetBeanName&lt;/param-name&gt;
+   &lt;param-value&gt;xxx&lt;/param-value&gt; ## xxx与bean配置的id名称相同
+ &lt;/init-param&gt;
+</code></pre>
+
+<hr />
+<pre><code> &lt;bean id=&quot;shiroFilter&quot;class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+    &lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot;/&gt;
+    &lt;property name=&quot;successUrl&quot; value=&quot;/success.jsp&quot;/&gt;
+    &lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/unauthorized.jsp&quot;/&gt; ##认证未通过打到的页面
+
+    &lt;property name=&quot;filterChainDefinitionMap&quot; ref=&quot;filterChainDefinitionMap&quot;&gt;&lt;/property&gt;
+
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            ## 遵循第一次匹配优先原则
+            /login.jsp = anon
+            /shiro/login = anon
+            /shiro/logout = logout
+
+            /user.jsp = roles[user]
+            /admin.jsp = roles[admin]
+
+            ## 除了上述配置的页面之外的页面都需要被认证
+            /** = authc
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p><font color='red'><strong>访问流程</strong></font></p>
+<ul>
+<li>
+filterChainDefinitions
+<ul>
+<li>经过验证的页面或匿名访问（【anon】）的页面可直接访问</li>
+<li>配置了不被拦截的页面可直接访问</li>
+</ul>
+</li>
+<li>
+没有经过上述配置需要验证的页面【未经过验证】
+<ul>
+<li>重定向到<code>&lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot;/&gt;</code>配置的页面</li>
+</ul>
+</li>
+</ul>
+<p><font color='red'><strong>filterChainDefinitions属性设置</strong></font></p>
+<p><strong>(1) url = 拦截器[参数]</strong></p>
+<p><em>如：/admin.jsp = roles[admin]</em></p>
+<ul>
+<li>anon 可以被匿名访问</li>
+<li>authc 必须认证(即登录)后才可能访问的页面. </li>
+<li>logout 登出.</li>
+<li>roles 角色过滤器
+<img src="https://i.imgur.com/sxRQF1y.png" /></li>
+</ul>
+<p><strong>(2) 通配符</strong></p>
+<p><font color='red'>通配符匹配不对目录分隔符“/”进行匹配：</font></p>
+<ul>
+<li>
+？
+<ul>
+<li>匹配一个字符</li>
+<li>如 /admin? 将匹配 /admin1，但不匹配 /admin 或 /admin/</li>
+</ul>
+</li>
+<li>
+*
+<ul>
+<li>匹配0个或多个</li>
+<li>如 /admin* 将匹配 /admin、/admin123，但不匹配 /admin/1</li>
+</ul>
+</li>
+<li>
+**
+<ul>
+<li>匹配0个或多个路径</li>
+<li>如 /admin/** 将匹配 /admin/a 或 /admin/a/b</li>
+</ul>
+</li>
+</ul>
+<p><strong>(3) 第一次匹配优先</strong></p>
+<ol>
+<li>/bb/**=filter1</li>
+<li>/bb/aa=filter2</li>
+<li>/**=filter3</li>
+</ol>
+<p>如果请求的url是“/bb/aa”，因为【按照声明顺序进行匹配】，那么将使用 filter1 进行拦截。</p>
+<h1><span id='5.'>认证（登录）</span></h1>
+<p><img src="https://i.imgur.com/v19lALv.png" />
+<img src="https://i.imgur.com/aSUBiar.png" /></p>
+<hr />
+<ul>
+<li>
+<p><strong>(1)Realm</strong>：</p>
+<ul>
+<li>Shiro 从 Realm 获取安全数据（如用户、角色、权限），即 SecurityManager 要验证用户身份，那么它需要从 Realm 获取相应的用户进行比较以确定用户身份是否合法；也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作</li>
+<li><font color='red'>一般继承 AuthorizingRealm（授权）即可；其继承了AuthenticatingRealm（即身份验证），而且也间接继承了CachingRealm（带有缓存实现）。</font></li>
+<li><img src="https://i.imgur.com/ui50Mhc.png" /></li>
+</ul>
+</li>
+<li>
+<p><strong>(2)Authenticator</strong>：</p>
+<ul>
+<li>Authenticator 的职责是验证用户帐号，是 Shiro API 中身份验
+证核心的入口点：如果验证成功，将返回AuthenticationInfo 验
+证信息；此信息中包含了身份及凭证；如果验证失败将抛出相应
+的 AuthenticationException 异常</li>
+<li>SecurityManager 接口继承了 Authenticator，另外还有一个
+ModularRealmAuthenticator实现，其委托给多个Realm 进行
+验证，<strong>验证规则通过 AuthenticationStrategy 接口指定</strong></li>
+</ul>
+</li>
+</ul>
+<h2><span id='5.1'>认证思路</span></h2>
+<ul>
+<li>
+获取当前的用户（subject）
+<ul>
+<li><code>Subject user = SecurityUtils.getSubject();</code></li>
+</ul>
+</li>
+<li>
+判断是否被认证（登录）
+<ul>
+<li><code>user.isAuthenticated()</code></li>
+<li>
+如果未登录，将前台传递的username,password封装为UsernamePasswordToken
+<ul>
+<li><code>UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username,password);</code></li>
+</ul>
+</li>
+<li>
+执行登录，将封装的token作为参数传递
+<ul>
+<li><code>user.login(usernamePasswordToken)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+自定义Realm
+<ul>
+<li>需要继承 org.apache.shiro.realm.AuthenticatingRealm 类</li>
+<li>实现 doGetAuthenticationInfo(AuthenticationToken) 方法. </li>
+<li>
+由 shiro 完成对密码的比对.
+<ul>
+<li><font color='blue'>我们只需要将前端的数据封装为UsernamePasswordToken，然后通过Realm重写的方法返回AuthenticationInfo的子类型SimpleAuthenticationInfo(将数据库的用户密码信息封装在里面)，这两者之间的比对（equals操作）是shiro的源码进行完成的</font></li>
+<li><font color='blue'><span id='credentialsMatcher'>AuthenticatingRealm类有一个CredentialsMatcher类型的属性credentialsMatcher</span></font></li>
+<li><font color='blue'>CredentialsMatcher的子类SimpleCredentialsMatcher中有一个方法doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info)完成了对上述两者封装的比较（即前台传递密码和数据库密码的比较），其中SimpleCredentialsMatcher定义了一个自己的equals(Object obj1,Object obj2)方法(此方法里面又调用到了Object的equals方法进行密码的比对)，被doCredentialsMatch（）方法调用</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><font color='red'>ps:</p>
+<ul>
+<li>Subject的login()方法实际是调用了SecurityManager的login()方法</li>
+<li>而SecurityManager的login()方法又依赖于AuthenticatingRealm的doGetAuthenticationInfo()方法</li>
+<li>因此我们需要自定义AuthenticatingRealm抽象类的子类，重写doGetAuthenticationInfo()方法</li>
+<li>通过将我们自定义的Realm配置在shiro的配置文件中，能在执行时调用我们自定义的Realm的doGetAuthenticationInfo（）方法
+</font></li>
+</ul>
+<h2><span id='5.2'>代码(1)</span></h2>
+<ul>
+<li>
+<strong>Controller</strong>
+<ul>
+<li>如果身份验证失败请捕获 AuthenticationException 或其子类</li>
+<li><img src="https://i.imgur.com/hN8UwML.png" /></li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code>// 获取当前user
+Subject user = SecurityUtils.getSubject();
+
+//未登录，则进行登录
+ if(!user.isAuthenticated()){
+     UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username,password);
+     try {  // 登录的代码进行try{}
+         user.login(usernamePasswordToken);
+     }catch (UnknownAccountException e){
+         System.out.println(e.getMessage());
+     }catch (LockedAccountException e){
+         System.out.println(e.getMessage());
+     }catch (AuthenticationException ae) {
+         System.out.println(&quot;都不是上述异常，父类异常进行匹配，登录失败！&quot;);
+     }
+  }
+
+  //通过验证，只有验证通过后通过【重定向】才能进入
+  return &quot;redirect:success&quot;;
+</code></pre>
+
+<ul>
+<li><strong>自定义的Realm【继承AuthenticatingRealm，重写方法】</strong></li>
+</ul>
+<hr />
+<pre><code>    //之前是封装为UsernamePasswordToken的对象，传递给了AuthenticationToken【向上转型】
+    //这里进行【向下转型】,还原为本身的UsernamePasswordToken类型
+    UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
+
+    //对用户名进行校验
+    String username = usernamePasswordToken.getUsername();
+    if(username.equals(&quot;hg&quot;)){
+        throw new UnknownAccountException(&quot;账户不存在&quot;);
+    }else if(username.equals(&quot;lock&quot;)){
+        throw new LockedAccountException(&quot;账户被锁定&quot;);
+    }
+
+    //一般使用返回值的子类SimpleAuthenticationInfo
+    /**
+     * SimpleAuthenticationInfo构造器的三个参数
+     * 1.principals
+     * 2.credentials
+     * 3.realName
+     */
+    Object principals = username;
+    Object credentials = &quot;123456&quot;;  //假使是数据库的密码
+    String realName = getName();
+    SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(principals,credentials,realName);
+
+    return simpleAuthenticationInfo;
+</code></pre>
+
+<p><strong>（1）SimpleAuthenticationInfo(principals,credentials,realName);构造器</strong></p>
+<ul>
+<li>
+principals（身份）
+<ul>
+<li>即主体的标识属性</li>
+<li>可以是任何属性，如用户名、邮箱等，唯一即可。</li>
+<li>一个主体可以有多个 principals，但只有一个Primary principals</li>
+<li>一般是用户名/邮箱/手机号</li>
+</ul>
+</li>
+<li>
+credentials（证明/凭证）
+<ul>
+<li>只有主体知道的安全值</li>
+<li>如密码/数字证书等。</li>
+</ul>
+</li>
+<li>
+realName
+<ul>
+<li>返回唯一的realm名字</li>
+<li>调用继承的父类的getName()方法即可</li>
+</ul>
+</li>
+</ul>
+<p><strong>最常见的 principals 和 credentials 组合就是用户名/密码了</strong></p>
+<h2><span id='5.3'>代码(2)---MD5加密</span></h2>
+<ul>
+<li><a href="#credentialsMatch">前面</a>说过AuthenticatingRealm类中一个类属性：credentialsMatch</li>
+<li>
+如果需要MD5加密验证密码，需要<strong>在配置文件中</strong>往类中(自定义的继承了AuthenticatingRealm的类)注入HashedCredentialsMatch
+<ul>
+<li><font color='red'>该匹配器会根据配置文件中的配置利用 new SimpleHash(String algorithmName, Object source, Object salt, int hashIterations)将前台的明文按照配置的MD5加密方式进行加密，然后与数据库的加了密的密码进行匹配</font></li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code>&lt;bean id=&quot;realmDemo&quot; class=&quot;edu.cqupt.shiro.RealmDemo&quot;&gt;
+    &lt;property name=&quot;credentialsMatcher&quot;&gt;
+        &lt;bean class=&quot;org.apache.shiro.authc.credential.HashedCredentialsMatcher&quot;&gt; //使用的是Hash(可以理解为MD5)的密码匹配器
+            &lt;property name=&quot;hashAlgorithmName&quot; value=&quot;MD5&quot;&gt;&lt;/property&gt; //MD5加密算法
+            &lt;property name=&quot;hashIterations&quot; value=&quot;1024&quot;&gt;&lt;/property&gt; //指定加密次数
+        &lt;/bean&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<h2><span id='5.4'>代码(3)---MD5盐值加密</span></h2>
+<ul>
+<li>不同的用户有相同的密码经过MD5加密后的结果也会是相同的</li>
+<li>
+为了避免上述情况，需要给MD5加密的结果加上点“佐料” -- &gt; MD5盐值加密
+<ul>
+<li><font color='red'>即使两人的密码一样，数据库存储的密码也不一样</font></li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+返回值simpleAuthenticationInfo,要用到这个构造器
+<ul>
+<li>
+SimpleAuthenticationInfo(Object principal, Object hashedCredentials, <strong>ByteSource credentialsSalt</strong>, String realmName)
+<ul>
+<li>credentialsSalt这个盐值是唯一的字符串或者使用用户名</li>
+<li>ByteSource credentialsSalt = ByteSource.Util.bytes(username);</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code>//使用【用户名】作为盐值
+ByteSource credentialsSalt = ByteSource.Util.bytes(username);
+SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(principals,credentials,credentialsSalt,realName);
+</code></pre>
+
+<hr />
+<p><strong>返回值加上了盐值这个参数，HashedCredentialsMatcher在进行匹配时，会将前台的数据加密时用到这个盐值，对应到利用盐值加密前台数据的源代码体现为：</strong></p>
+<pre><code>new SimpleHash(String algorithmName, Object source, Object salt, int hashIterations).toString();
+</code></pre>
+
+<hr />
+<h2><span id='5.5'>多个Realm+认证策略</span></h2>
+<p><strong><font color='red'>如在reaml中除了可以定义md5加密，还可以定义为SHA1加密</font></strong></p>
+<ul>
+<li>
+ModularRealmAuthenticator的doAuthenticate方法
+<ul>
+<li>如果是单个realm,进行单个认证doSingleRealmAuthentication</li>
+<li>如果是多个realm，进行多个认证doMultiRealmAuthentication</li>
+</ul>
+</li>
+</ul>
+<hr />
+<pre><code>protected AuthenticationInfo doAuthenticate(AuthenticationToken authenticationToken) throws AuthenticationException {
+    this.assertRealmsConfigured();
+    Collection realms = this.getRealms();
+    return realms.size() == 1?this.doSingleRealmAuthentication((Realm)realms.iterator().next(), authenticationToken):this.doMultiRealmAuthentication(realms, authenticationToken);
+}
+</code></pre>
+
+<p>1）. 在shiro配置文件中配置ModularRealmAuthenticator</p>
+<ul>
+<li>注入认证的多个realms</li>
+<li>注入认证策略</li>
+</ul>
+<hr />
+<pre><code>&lt;bean id=&quot;authenticator&quot; class=&quot;org.apache.shiro.authc.pam.ModularRealmAuthenticator&quot;&gt;
+    &lt;!--多个realms的认证策略--&gt;
+    &lt;property name=&quot;authenticationStrategy&quot;&gt;
+        &lt;bean class=&quot;org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy&quot;&gt;&lt;/bean&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<ul>
+<li>
+<strong>AuthenticationStrategy【认证策略】</strong>：
+<ul>
+<li>
+<strong>AuthenticationStrategy</strong> 接口的默认实现：
+<ul>
+<li><strong>FirstSuccessfulStrategy【默认值】</strong>：只要有一个 Realm 验证成功即可，只返回第
+一个 Realm 身份验证成功的认证信息，其他的忽略；</li>
+<li><strong>AtLeastOneSuccessfulStrategy</strong>：只要有一个Realm验证成功即可，和
+FirstSuccessfulStrategy 不同，将返回所有Realm身份验证成功的认证信
+息；</li>
+<li><strong>AllSuccessfulStrategy</strong>：所有Realm验证成功才算成功，且返回所有
+Realm身份验证成功的认证信息，如果有一个失败就失败了。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>2）. 将配置的ModularRealmAuthenticator注入到securityManager中</p>
+<hr />
+<pre><code>&lt;bean id=&quot;securityManager&quot;class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;
+    &lt;property name=&quot;authenticator&quot; ref=&quot;authenticator&quot;&gt;&lt;/property&gt;
+    &lt;!--多realms--&gt;
+    &lt;property name=&quot;realms&quot;&gt;
+        &lt;list&gt;
+            &lt;ref bean=&quot;realmDemo&quot;/&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p><font color='red'>注意：之所以将多个realms配置在securityManager中而不是配置在ModularRealmAuthenticator这个bean的配置中【其实realms本身就是属于的securityManager的】</p>
+<p>一是因为逻辑上，securityManager本身就需要realms，这样在后续进行授权才不会出错</p>
+<p>二是源码在源码中，如果传递的参数如果是ModularRealmAuthenticator的instaceof,则将securityManager设置给了ModularRealmAuthenticator</font></p>
+<p><strong>因为是list有顺序，认证的顺序和配置的顺序相同</strong></p>
+<h1><span id='6.'>授权</span></h1>
+<p><font color='red' ><strong>授权的操作是在登录完成之后才进行的，根据登录的用户获取其角色或权限</strong></font></p>
+<p><img src="https://i.imgur.com/tV8rgZW.png" /></p>
+<h2><span id='6.1'>三种授权方式</span></h2>
+<p>1). 编程式：通过写if/else 授权代码块完成</p>
+<hr />
+<pre><code>if(subject.hasRole(&quot;admin&quot;)){
+ //有角色的权限
+}else{
+//xxx
+}
+</code></pre>
+
+<p>2). 注解式【注解放在方法上】</p>
+<ul>
+<li>没有权限访问会抛异常，使用springmvc的统一异常处理</li>
+<li>注解放在controller或service的方法上</li>
+<li>service类加了@Transcation注解，不能再使用shiro的注解</li>
+</ul>
+<hr />
+<pre><code>@RequiresRoles(&quot;admin&quot;)
+public void hello(){
+}
+</code></pre>
+
+<p>3). jsp标签</p>
+<hr />
+<pre><code>&lt;shiro:hasRole name&quot;admin&quot;&gt;
+    //xxxxx
+&lt;/shiro:hasRole&gt;
+</code></pre>
+
+<h2><span id='6.2'>拦截器</span></h2>
+<ul>
+<li>org.apache.shiro.web.filter.mgt.DefaultFilter</li>
+</ul>
+<hr />
+<p><img src="https://i.imgur.com/9WrUR8O.png" /></p>
+<ul>
+<li><strong>身份验证相关的</strong></li>
+</ul>
+<hr />
+<p><img src="https://i.imgur.com/yTWTT7U.png" /></p>
+<ul>
+<li><strong>授权相关的</strong></li>
+</ul>
+<hr />
+<p><img src="https://i.imgur.com/M815LHU.png" /></p>
+<ul>
+<li>
+<strong>permissions</strong>
+<ul>
+<li>
+(1) 多层次管理====&gt;例如：user:query、 user:edit
+<ul>
+<li>冒号是一个特殊字符，它用来分隔权限字符串的下一部件：第一部分是权限被操作的领域（打印机），第二部分是被执行的操作。</li>
+<li>多个值：每个部件能够保护多个值。因此，除了授予用户 user:query和 user:edit 权限外，也可以简单地授予他们一个：user:query, edit</li>
+<li>还可以用 * 号代替所有的值，如：user:* ， 也可以写：*:query，表示某个用户在所有的领域都有 query 的权限</li>
+</ul>
+</li>
+<li>
+(2) 实例级访问控制
+<ul>
+<li>这种情况通常会使用三个部件：域、操作、被付诸实施的实例。 如：user:edit:manager</li>
+<li>可以使用通配符来定义，如：user:edit:<em>、 user:</em>:<em>、user:</em>:manager</li>
+<li>部分省略通配符：缺少的部件意味着用户可以访问所有与之匹配的值，比如：user:edit 等价于 user:edit :<em>、user 等价于 user:</em>:*</li>
+<li>通配符只能从字符串的结尾处省略部件，也就是说 user:edit 并不等价于 user:*:edit</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id='6.3'>授权流程</span></h2>
+<ul>
+<li>
+授权的Realm
+<ul>
+<li>继承 AuthorizingRealm 类, 并重写其 doGetAuthorizationInfo 方法</li>
+<li><strong>AuthorizingRealm 类继承自 AuthenticatingRealm,</strong> 但没有实现 AuthenticatingRealm 中的 doGetAuthenticationInfo, 所以认证和授权只需要继承 AuthorizingRealm 就可以了. 同时实现他的两个抽象方法.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/hA3Ikrj.png" /></p>
+<p><img src="https://i.imgur.com/i4aN13B.png" /></p>
+<h2><span id='6.3.1'>编程式-代码</span></h2>
+<ol>
+<li>在shiro配置文件中配置受保护的页面</li>
+</ol>
+<hr />
+<pre><code>/jsp/user.jsp = roles[user]
+/jsp/admin.jsp = roles[admin]
+</code></pre>
+
+<ol>
+<li>定义Realm,继承 AuthorizingRealm 类, 并重写其 doGetAuthorizationInfo 方法</li>
+</ol>
+<hr />
+<pre><code>@Override
+protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+    //（1）获取登录成功后该用户的principal
+    Object principal = principalCollection.getPrimaryPrincipal();
+
+    //（2）创建set集合从数据库中查询该用户对应的角色或权限
+    HashSet&lt;String&gt; set = new HashSet&lt;&gt;();
+    if(principal.equals(&quot;张三&quot;)){
+        set.add(&quot;user&quot;);  //测试时手动让“张三”为user
+    }else if(principal.equals(&quot;李四&quot;)){
+        set.add(&quot;user&quot;);  //测试时手动让“李四”为admin，兼顾user的角色
+        set.add(&quot;admin&quot;);
+    }
+
+    //（3）通过传递set集合封装的用户角色创建simpleAuthorizationInfo对象
+    SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo(set);
+    return simpleAuthorizationInfo;
+}
+</code></pre>
+
+<h2><span id='6.3.2'>注解式</span></h2>
+<ul>
+<li>
+<strong>用在方法上</strong>
+<ul>
+<li>controller的方法上</li>
+<li>service的方法上（service被@Transcation修饰时不能使用）</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+@RequiresAuthentication：
+<ul>
+<li>表示当前Subject已经通过login
+进行了身份验证；即 Subject. isAuthenticated() 返回 true</li>
+</ul>
+</li>
+<li>
+@RequiresUser：
+<ul>
+<li>表示当前 Subject 已经身份验证或者通过记
+住我登录的。</li>
+</ul>
+</li>
+<li>
+@RequiresGuest：
+<ul>
+<li>表示当前Subject没有身份验证或通过记住
+我登录过，即是游客身份。</li>
+</ul>
+</li>
+<li>
+@RequiresRoles(value={“admin”, “user”}, logical=
+Logical.AND)：
+<ul>
+<li>表示当前 Subject 需要角色 admin 和user</li>
+</ul>
+</li>
+<li>
+@RequiresPermissions (value={“user:a”, “user:b”},
+logical= Logical.OR)：
+<ul>
+<li>表示当前 Subject 需要权限 user:a 或user:b。</li>
+</ul>
+</li>
+</ul>
+<h2><span id='6.3.3'>jsp标签</span></h2>
+<p>第一步：&lt;%@ taglib prefix=&quot;shiro&quot; uri=&quot;http://shiro.apache.org/tags&quot;%&gt;</p>
+<ul>
+<li>
+未登录，游客模式
+<ul>
+<li><code>&lt;shiro:guest&gt;xxxxx&lt;/shiro:guest&gt;</code></li>
+</ul>
+</li>
+<li>
+通过认证登录 或者 通过remeber me完成登录的
+<ul>
+<li><code>&lt;shiro:user&gt;xxx&lt;/shiro:user&gt;</code></li>
+</ul>
+</li>
+<li>
+通过login（）方法认证登录，不包括通过remeber me完成登录的
+<ul>
+<li><code>&lt;shiro:authenticated&gt;xxxx&lt;/shiro:authenticated&gt;</code></li>
+</ul>
+</li>
+<li>
+没通过login()认证登录，也没有remeber me登录【相当于游客】
+<ul>
+<li><code>&lt;shiro:notAuthenticated&gt;xxxx&lt;/shiro:notAuthenticated&gt;</code></li>
+</ul>
+</li>
+<li>
+显示用户身份信息
+<ul>
+<li><code>&lt;shiro:principal /&gt;</code></li>
+</ul>
+</li>
+<li>
+用户拥有某个角色
+<ul>
+<li><code>&lt;shiro:hasRole name='admin'&gt;xxxx&lt;/shiro:hasRole&gt;</code> </li>
+</ul>
+</li>
+<li>
+用于拥有集合中任意一个角色
+<ul>
+<li><code>&lt;shiro:hasAnyRole name='user,admin'&gt;&lt;/shiro:hasAnyRole&gt;</code></li>
+</ul>
+</li>
+<li>
+用于缺少某个角色
+<ul>
+<li><code>&lt;shiro:lacksRole name='admin'&gt;&lt;/shiro:lacksRole&gt;</code></li>
+</ul>
+</li>
+<li>
+用于拥有权限
+<ul>
+<li><code>&lt;shiro:hasPermission name='user:create'&gt;&lt;/shiro:hasPermission&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2><span id='6.4'>将filterChainDefinitions配置到Map中</span></h2>
+<ul>
+<li>filterChainDefinitions对应的是filterChainDefinitionMap</li>
+<li>filterChainDefinitionMap是LinkedHashMap类型的</li>
+<li>因为LinkedHashMap是有序的，所以解释了之前的【“第一次匹配优先”】</li>
+</ul>
+<hr />
+<p>1）. 将shiroFilter中有关“url=拦截器[参数]”的配置</p>
+<hr />
+<pre><code>&lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /login = anon
+            /jsp/login.jsp = anon
+
+            /jsp/user.jsp = roles[zhangsan]
+            /jsp/admin.jsp = roles[lisi]
+
+            /** = authc
+        &lt;/value&gt;
+    &lt;/property&gt;
+</code></pre>
+
+<p>更换为
+<code>&lt;property name=&quot;filterChainDefinitionMap&quot; ref=&quot;filterChainDefinitionMap&quot;&gt;&lt;/property&gt;</code></p>
+<p>2）. 然后在后面通过实例工厂为filterChainDefinitionMap属性创建实例</p>
+<hr />
+<pre><code>&lt;bean id=&quot;filterChainDefinitionMap&quot; 
+    factory-bean=&quot;filterChainDefinitionMapBuilder&quot; factory-method=&quot;buildFilterChainDefinitionMap&quot;&gt;&lt;/bean&gt;
+
+&lt;bean id=&quot;filterChainDefinitionMapBuilder&quot;
+    class=&quot;edu.cqupt.shiro.factory.FilterChainDefinitionMapBuilder&quot;&gt;&lt;/bean&gt;
+</code></pre>
+
+<p>3) . 创建一个工厂类edu.cqupt.shiro.factory.FilterChainDefinitionMapBuilder，创建buildFilterChainDefinitionMap（）方法，返回filterChainDefinitionMap这个属性对应的数据类型：<strong><font color='red'>LinkedHashMap</font></strong></p>
+<h1><span id='7.'>shiro-会话管理</span></h1>
+<ul>
+<li>shiro的session会话与web的HttpSession不同</li>
+<li>Shiro 提供了完整的企业级会话管理功能，不依赖于底层容器（如web容器tomcat），不管 JavaSE还是 JavaEE 环境都可以使用</li>
+<li><font color='red'>web的HttpSession和shiro的session域中存储的参数是互通的【通常还是使用web的HttpSession】</font></li>
+</ul>
+<hr />
+<ul>
+<li>
+常用的方法
+<ul>
+<li>
+<code>Subject.getSession()：即可获取会话【默认为true】；</code>
+<ul>
+<li>Subject.getSession(true)，即如果当前没有创建 Session对象会创建一个</li>
+<li>Subject.getSession(false)，如果当前没有创建 Session 则返回null</li>
+</ul>
+</li>
+<li><code>session.getId()：获取当前会话的唯一标识</code></li>
+<li><code>session.getHost()：获取当前Subject的主机地址</code></li>
+<li><code>session.getTimeout() &amp; session.setTimeout(毫秒)：获取/设置当前Session的过期时间</code></li>
+<li>
+<code>session.getStartTimestamp() &amp; session.getLastAccessTime()：</code>
+<ul>
+<li>获取会话的启动时间及最后访问时间</li>
+<li>如果是 JavaSE 应用需要自己定
+期调用 session.touch() 去更新最后访问时间；如果是 Web 应用，每
+次进入 ShiroFilter 都会自动调用 session.touch() 来更新最后访问时间。</li>
+</ul>
+</li>
+<li>
+<code>Session.touch() &amp; session.stop()：更新会话最后访问时间及销毁会话；</code>
+<ul>
+<li>当Subject.logout()时会自动调用 stop 方法来销毁会话。</li>
+<li>如果在web中，调用 HttpSession. invalidate()
+也会自动调用Shiro Session.stop 方法进行销毁Shiro的会话</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<strong>域对象方法</strong>
+<ul>
+<li><code>seesion.setAttribute(key,val);</code></li>
+<li><code>seesion.getAttribute(key);</code></li>
+<li><code>seesion.removeAttribute(key);</code></li>
+</ul>
+</li>
+</ul>
+<p><font color='red'>session域中数据互通，在controller中用httpSession.setAttribute(key,val),可以在service中用shiro的session.getAttribute(key)可以获取到</font></p>
+<hr />
+<ul>
+<li>
+监听器
+<ul>
+<li><strong>和web的SessionListener相似</strong></li>
+<li>
+SessionListener
+<ul>
+<li>| - onStart(Session) 方法</li>
+<li>| - onStope(Session) 方法</li>
+<li>| - onExpiration(Session)方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+SessionDao<font color='blue'>用得不多</font>
+<ul>
+<li>继承EnterpriseCacheSessionDAO类，重写里面的四个方法</li>
+<li>用于完成对Session的序列化，然后将序列化的Session存储到数据库中</li>
+</ul>
+</li>
+<li>
+配置
+<ul>
+<li><img src="https://i.imgur.com/5Sh1auX.png" /></li>
+<li><img src="https://i.imgur.com/19URuMM.png" /></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<pre><code>【MySessionDao.java】
+
+public class MySessionDao extends EnterpriseCacheSessionDAO {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate = null;
+
+    @Override
+    protected Serializable doCreate(Session session) {
+        Serializable sessionId = generateSessionId(session);
+        assignSessionId(session, sessionId);
+        String sql = &quot;insert into sessions(id, session) values(?,?)&quot;;
+        jdbcTemplate.update(sql, sessionId,
+                SerializableUtils.serialize(session));
+        return session.getId();
+    }
+
+    @Override
+    protected Session doReadSession(Serializable sessionId) {
+        String sql = &quot;select session from sessions where id=?&quot;;
+        List&lt;String&gt; sessionStrList = jdbcTemplate.queryForList(sql,
+                String.class, sessionId);
+        if (sessionStrList.size() == 0)
+            return null;
+        return SerializableUtils.deserialize(sessionStrList.get(0));
+    }
+
+    @Override
+    protected void doUpdate(Session session) {
+        if (session instanceof ValidatingSession
+                &amp;&amp; !((ValidatingSession) session).isValid()) {
+            return; 
+        }
+        String sql = &quot;update sessions set session=? where id=?&quot;;
+        jdbcTemplate.update(sql, SerializableUtils.serialize(session),
+                session.getId());
+    }
+
+    @Override
+    protected void doDelete(Session session) {
+        String sql = &quot;delete from sessions where id=?&quot;;
+        jdbcTemplate.update(sql, session.getId());
+    }
+}
+
+//============================================
+【SerializableUtils.java】
+
+
+public class SerializableUtils {
+
+    public static String serialize(Session session) {
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(session);
+            return Base64.encodeToString(bos.toByteArray());
+        } catch (Exception e) {
+            throw new RuntimeException(&quot;serialize session error&quot;, e);
+        }
+    }
+
+    public static Session deserialize(String sessionStr) {
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(
+                    Base64.decode(sessionStr));
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            return (Session) ois.readObject();
+        } catch (Exception e) {
+            throw new RuntimeException(&quot;deserialize session error&quot;, e);
+        }
+    }
+
+}
+</code></pre>
+
+<h1><span id='8.'>缓存</span></h1>
+<ul>
+<li>Shiro 内部相应的组件（DefaultSecurityManager）会自动检测相应的对象（如Realm）是否实现了CacheManagerAware</li>
+<li>如果实现了CacheManagerAware会自动注入相应的CacheManager</li>
+<li><strong>CacheManager就是在shiro的xml配置文件中配置了然后注入给securityManager的</strong></li>
+<li><strong>Realm间接实现了CacheManagerAware，所以说Realm是有缓存的。</strong></li>
+<li><strong>AuthenticatingRealm 及 AuthorizingRealm 也分别提供了对AuthenticationInfo 和AuthorizationInfo 信息的缓存。</strong></li>
+</ul>
+<blockquote>
+<p>Session 缓存</p>
+</blockquote>
+<ul>
+<li>比如 SecurityManager 实现了 SessionSecurityManager，其会判断 SessionManager 是否实现了CacheManagerAware 接口，如果实现了会把CacheManager 设置给它。</li>
+<li>SessionManager 也会判断相应的 SessionDAO（如继承自CachingSessionDAO）是否实现了CacheManagerAware，如果实现了会把 CacheManager
+设置给它</li>
+<li>设置了缓存的 SessionManager，查询时会先查缓存，如果找不到才查数据库。</li>
+</ul>
+<h1><span id='9.'>remember me</span></h1>
+<hr />
+<ol>
+<li>首先在登录页面选中 RememberMe 然后登录成功；如果是浏览器登录，<font color='red'>一般会把 RememberMe 的Cookie 写到客户端并保存下来；</font></li>
+<li><strong>关闭浏览器再重新打开；会发现浏览器还是记住你的；</strong></li>
+<li>访问一般的网页服务器端还是知道你是谁，且能正常访问；</li>
+<li>但是比如我们访问淘宝时，如果要查看我的订单或进行支付时，此时还是需要再进行身份认证的，以确保当前用户还是你。</li>
+</ol>
+<hr />
+<ul>
+<li>
+认证【authentication】和记住我【remeber me】
+<ul>
+<li>subject.isAuthenticated() 表示用户进行了身份验证登录的，即使有 Subject.login 进行了登录；</li>
+<li>subject.isRemembered()：表示用户是通过记住我登录的，此时可能并不是真正的你（如你的朋友使用你的电脑，或者你的cookie 被窃取）在访问的</li>
+<li><font color='red'>两者二选一，即 subject.isAuthenticated()==true，则subject.isRemembered()==false；反之一样。</font>     
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+建议
+<ul>
+<li>
+访问一般网页
+<ul>
+<li>如个人在主页之类的，我们使用user 拦截器即可，user 拦截器只要用户登录</li>
+<li>(isRemembered() || isAuthenticated())过即可访问成功；	</li>
+</ul>
+</li>
+<li>
+访问特殊网页
+<ul>
+<li>如我的订单，提交订单页面，我们使用authc 拦截器即可，authc 拦截器会判断用户是否是通过</li>
+<li>Subject.login（isAuthenticated()==true）登录的，如果是才放行，否则会跳转到登录页面叫你重新登录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+实现
+<ul>
+<li><strong>在执行登录（subject.login()）之前,调用UsernamePasswordToken.setRememberMe(true)</strong>;</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+cookie的过期时间【秒】配置
+<ul>
+<li>在securityManager中配置<code>&lt;property name=&quot;rememberMeManager.cookie.maxAge&quot; value=&quot;10&quot;&gt;&lt;/property&gt;</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+注意
+<ul>
+<li>/list.jsp = authc //通过remeber me第二次直接打开浏览器访问是不ok的[会重写要求认证登录]，必须是login()方法进行authentication</li>
+<li>/list.jsp = user //【user】过滤器包含authentication+remeber me 两种方式，通过第二次直接打开浏览器可以访问</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
