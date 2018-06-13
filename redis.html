@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>redis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>概述</h1>
+<p><strong>（1） 单机mysql</strong></p>
+<p><img src="https://i.imgur.com/7F1etY6.png" /></p>
+<p><strong>（2）缓存+mysql+垂直划分</strong></p>
+<p><img src="https://i.imgur.com/an5MHkH.png" />
+<strong>（3） mysql主从分离</strong></p>
+<p><img src="https://i.imgur.com/Szzu7Ww.png" /></p>
+<p><strong>（4）水平拆分，集群</strong>
+<img src="https://i.imgur.com/ISuFmv3.png" /></p>
+<p><img src="https://i.imgur.com/Qtzajl0.png" /></p>
+<p><strong>（5） mysql扩展瓶颈</strong></p>
+<p><img src="https://i.imgur.com/a9d7ywb.png" /></p>
+<p><strong>（6）当今</strong></p>
+<p><img src="https://i.imgur.com/CnJmklG.png" /></p>
+<h1>redis瞎掰</h1>
+<ul>
+<li>NoSQL数据库种类繁多，但是一个共同的特点都是去掉关系数据库的关系型特性。数据之间无关系，这样就<font color='red'>非常容易扩展。</font>也无形之间，在架构的层面上带来了可扩展的能力。</li>
+<li><font color='red'>一般MySQL使用Query Cache，每次表的更新Cache就失效，是一种大粒度的Cache</font>在针对web2.0的交互频繁的应用，Cache性能不高。<strong>而NoSQL的Cache是记录级的，是一种细粒度的Cache，</strong>所以NoSQL在这个层面上来说就要性能高很多了</li>
+</ul>
+<h1>3v+3高</h1>
+<h3>3v</h3>
+<ul>
+<li>海量Volume</li>
+<li>多样Variety</li>
+<li>实时Velocity</li>
+</ul>
+<h3>3高</h3>
+<ul>
+<li>高并发</li>
+<li>高可扩</li>
+<li>高性能</li>
+</ul>
+<h1>数据库四大分类</h1>
+<p><img src="https://i.imgur.com/0q5GvkU.png" /></p>
+<p><img src="https://i.imgur.com/NFsxoHo.png" /></p>
+<h1>CAP+BASE</h1>
+<blockquote>
+<p>CAP:</p>
+</blockquote>
+<pre><code>* C：Consistency(强一致性)
+* A：Availability(可用性)
+* P:Partition tolerance（分区容错性）
+</code></pre>
+
+<hr />
+<ul>
+<li> CAP理论的核心：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，
+<font color='red'>最多只能同时较好的满足两个。</font></li>
+</ul>
+<p><font color='red'>往往实际中采用分布式，首先得保证P，然后在C,A中选择A，即：<strong>保证AP</strong></font></p>
+<pre><code>    因此，根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 CP 原则和满足 AP 原则三 大类：
+    CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。
+    CP - 满足一致性，分区容忍必的系统，通常性能不是特别高。
+    AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。
+
+    CA 传统Oracle数据库
+    AP 【大多数网站架构的选择】
+    CP Redis、Mongodb
+
+    【数据库事务一致性需求 】
+    很多web实时系统并不要求严格的数据库事务，对读一致性的要求很低， 有些场合对写一致性要求并不高。【允许实现最终一致性。】
+
+    【数据库的写实时性和读实时性需求】
+    对关系数据库来说，插入一条数据之后立刻查询，是肯定可以读出来这条数据的。
+    但是对于很多web应用来说，并不要求这么高的实时性。
+    比方说发一条消息之后，过几秒乃至十几秒之后，我的订阅者才看到这条动态是完全可以接受的。
+</code></pre>
+
+<blockquote>
+<p>BASE</p>
+</blockquote>
+<ul>
+<li>
+<p>BASE就是为了解决关系数据库强一致性引起的问题而引起的可用性降低而提出的解决方案。</p>
+<pre><code>BASE其实是下面三个术语的缩写：
+基本可用（Basically Available）
+软状态（Soft state）
+最终一致（Eventually consistent）
+</code></pre>
+
+<p>它的思想是通过让系统放松对某一时刻数据一致性的要求来换取系统整体伸缩性和性能上改观。为什么这么说呢，缘由就在于大型系统往往由于地域分布和极高性能的要求，不可能采用分布式事务来完成这些指标，要想获得这些指标，我们必须采用另外一种方式来完成，这里BASE就是解决这个问题的办法</p>
+</li>
+</ul>
+<blockquote>
+<p>分布式与集群</p>
+</blockquote>
+<ul>
+<li>
+<p>分布式系统（distributed system）</p>
+<pre><code> 由多台计算机和通信的软件组件通过计算机网络连接（本地网络或广域网）组成。分布式系统是建立在网络之上的软件系统。
+ 正是因为软件的特性，所以分布式系统具有高度的内聚性和透明性。
+ 因此，网络和分布式系统之间的区别更多的在于高层软件（特别是操作系统），而不是硬件。
+ 分布式系统可以应用在在不同的平台上如：Pc、工作站、局域网和广域网上等。
+</code></pre>
+
+</li>
+<li>
+<p>分布式：不同的多台服务器上面部署<strong>不同的服务模块（工程）</strong>，他们之间通过Rpc/Rmi之间通信和调用，对外提供服务和组内协作。</p>
+</li>
+<li>
+<p>集群：不同的多台服务器上面部署<strong>相同的服务模块，</strong>通过分布式调度软件进行统一的调度，对外提供服务和访问。
+ </p>
+</li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
