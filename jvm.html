@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jvm</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>目录</h1>
+<ul>
+<li>
+<a href="#1.">垃圾回收</a>
+<ul>
+<li>
+<a href="#1.1">垃圾收集算法</a>
+<ul>
+<li><a href="#1.1.1">确定垃圾</a></li>
+<li><a href="#1.1.2">GC Roots的对象</a></li>
+<li><a href="#1.1.3">软-弱-虚-强引用</a></li>
+<li><a href="#1.1.4">finalize()方法</a></li>
+<li><a href="#1.1.5">回收方法区（永久区)</a></li>
+<li><a href="#1.1.6">垃圾收集算法</a></li>
+</ul>
+</li>
+<li>
+<a href="#1.2">垃圾收集器</a>
+<ul>
+<li><a href="#1.2.1">Serial收集器</a></li>
+<li><a href="#1.2.2">并行收集器</a></li>
+<li><a href="#1.2.3">并发收集器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2.">内存划分</a></li>
+</ul>
+<h2><span id='1.'>垃圾回收</span></h2>
+<p><img src="https://i.imgur.com/PKIKkrA.png" /></p>
+<blockquote>
+<p>jvm将堆分为三个区：【新生代】 【老年代】 【 持久代】</p>
+</blockquote>
+<hr />
+<ul>
+<li>
+新生代分为【Eden区】和两个【Survivor区】
+<ul>
+<li>所有新创建的对象在Eden区</li>
+<li>Eden区满会触发【minor GC】将Eden区存活的对象复制到一个Survivor区中，另外一个Survivor区中的存活对象也复制到这个Survivor区中，保证总有一个Survivor是空的</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+老年代 【old 区】
+<ul>
+<li>存放的是新生代的Survivor区满后触发【minor GC】后存活的对象</li>
+<li>大对象可以直接进入老年代</li>
+<li>Old区也满了之后触发【Full GC】,回收整个堆内存</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+持久代
+<ul>
+<li>存放的是Class对象</li>
+<li>加载足够多的内可导致Perm满溢出</li>
+<li>Perm区的垃圾回收也由【Full GC】触发</li>
+<li>即方法区？</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2><span id='1.1'>1.1 垃圾收集算法</span></h2>
+<h3><span id='1.1.1'>1.1.1 确定垃圾</span></h3>
+<ul>
+<li>
+引用计数算法
+<ul>
+<li>给对象中添加一个引用计数器，每一个地方引用它时，计数器就加1</li>
+<li>当引用失效时，计数器的值就减1</li>
+<li>任何&gt;时刻计数器为0的对象就是不可能再被使用的</li>
+<li><font color='red'>它很难解决对象之间的相互引用问题</font></li>
+<li>所以虚拟机并不是通过引用计数算法来判断对象是否存活的。</li>
+</ul>
+</li>
+<li>
+根搜索算法(正向可达算法)
+<ul>
+<li>通过一系列的名为<strong>“GC Roots”</strong>的对象作为起始点</li>
+<li>从这些节点开始向下搜索，搜索所走过的路径成为<strong>引用链</strong></li>
+<li>当一个对象到GC Roots没有任何引用链相连--<font color='red'>垃圾</font></li>
+<li>即图论中的“孤立点”便为垃圾</li>
+</ul>
+</li>
+</ul>
+<h3><span id='1.1.2'>1.1.2 GC Roots的对象</span></h3>
+<ul>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区类静态属性引用的对象</li>
+<li>方法区常量池引用的对象</li>
+<li>本地方法栈JNI引用的对象</li>
+</ul>
+<h3><span id='1.1.3'>1.1.3 软-弱-虚-强引用</span></h3>
+<ul>
+<li>软引用</li>
+<li>弱引用</li>
+<li>虚引用</li>
+<li>强引用</li>
+</ul>
+<h3><span id='1.1.4'>1.1.4 finalize()方法</span></h3>
+<pre><code> 根搜索算法中的不可达对象并不是“非死不可”的 ，这时候他们暂时处于“缓刑”阶段。
+
+ 宣告死亡至少要经历【两次标记过程】:
+ 如果对象在进行根搜索后发现并没有与GC Roots引用链相连接。那么将会被标记一次并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。
+
+ (1)当对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过。虚拟机将这两种情况都视为“没有必要执行”。
+ (2)如果有必要执行那么这个对象将被放置到名为F-Queue的队列中，稍后由一条虚拟&gt;机自动创建的低优先级的Finalizer线程去执行。所谓的执行就是触发finalize()方法。
+
+ finalize()方法是对象逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中&gt;的对象进行第二次小规模的标记，如果第二次被标记时它将被移除“即将回收”的集合；那么就over了
+</code></pre>
+
+<h3><span id='1.1.5'>1.1.5 回收方法区（永久区）</span></h3>
+<ul>
+<li>方法区（永久区）回收效率比较低，而且进行回收的条件比较苛刻，一般不会回收方法区</li>
+<li>
+永久代的垃圾收集主要回收分为两部分内容：废弃常量和无用的类。
+<ul>
+<li><strong>回收常量</strong>：如果一个常量已经进入到常量池中，但是当前系统中没有一个此常量名的对象，也没有其他地方引用了这个字面量，如果发生内存回收，而却有必要的话，这个常量将被“请出”常量池。</li>
+<li><strong>回收“无用”类</strong>：该类所有的实例都已经被回收，也就是java堆中不存在该类的任何实例。加载该类的ClassLoader已经被回收。该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h3><span id='1.1.6'>1.1.6 垃圾收集算法</span></h3>
+<ol>
+<li>
+<p>标记-清除（Mark-Sweep）</p>
+<ul>
+<li>分为“标记”和“清除”两个阶段，先根据正向可达算法标记出垃圾，然后直接在原处进行清除</li>
+<li><font color='red'>效率问题</font>：“标记”和“清除”两个阶段的效率都不高</li>
+<li>
+<font color='red'>碎片问题</font>：由于直接在原位清除标记的垃圾，会导致很多内存碎片的存在
+<ul>
+<li>当一个大对象进入堆内存找不到连续的内存足以容纳它时，<font color='red'>会触发full gc</font>，十分消耗性能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>复制算法（copying）：<font color='red'>【新生代的survivor区使用此垃圾收集算法---&gt;死得多，活得少，自然复制的就少】</font></p>
+<ul>
+<li>将内存分为完全相等的两份，同一时刻只能使用其中的一份</li>
+<li>假设垃圾收集刚开始发生在a区域，将a区域中存活的对象复制到b区域同时在b区域中排列好【复制+重排列】</li>
+<li>a区域直接进行大清洗，而后使用b区域，a区域处于闲置状态直至下次垃圾回收将b区域的对象再复制到a区域</li>
+<li><font color='red'> 解决碎片化</font></li>
+<li><font color='red'>复制算法效率高</font></li>
+<li><font color='red'>不足之处在于：内存浪费（每次只能使用一半的内存）</font></li>
+</ul>
+</li>
+<li>
+<p>标记-压缩（Mark-Compact）<font color='red'>【老年代使用此垃圾收集算法----&gt;垃圾较少，移动较少】</font></p>
+<ul>
+<li>与标记-清除不同在于，此垃圾收集算法会在收集完垃圾后将存活对象移动到一旁排列好（而不是像标记-清除一样凌乱，存在碎片）</li>
+<li><font color='red'>解决碎片化问题,不至于浪费1/2的空间</font></li>
+<li><font color='red'> 效率比“复制算法”稍低</font></li>
+</ul>
+</li>
+</ol>
+<h2><span id='1.2'>1.2 垃圾收集器</span></h2>
+<h3><span id='1.2.1'>1.2.1 Serial收集器</span></h3>
+<ul>
+<li><strong>串行收集器</strong>是最古老，最稳定以及效率高的收集器，</li>
+<li>可能会产生<strong>较长的停顿</strong>，只使用<strong>一个线程</strong>去回收。</li>
+<li><strong>在进行垃圾收集时，必须暂停其他所有的工作线程，直到收集结束。</strong></li>
+<li><strong>Client模式下默认的新生代收集器</strong></li>
+<li><strong>-XX:+UseSerialGC</strong></li>
+</ul>
+<h3><span id='1.2.2'>1.2.2 并行收集器</span></h3>
+<ol>
+<li>
+ParNew收集器
+<ul>
+<li>Serial收集器的多线程版本</li>
+<li><strong>新生代并行，老年代串行</strong></li>
+<li>它是运行在<strong>Server模式下首选新生代收集器</strong></li>
+<li>-XX:+UseParNewGC</li>
+<li>-XX:+UseParNewGC #限制线程数量</li>
+</ul>
+</li>
+<li>
+<font color='red'>Parallel收集器</font>
+<ul>
+<li>类似ParNew收集器，<strong>并发吞吐量大</strong></li>
+<li>每次gc，可能会有<strong>短暂停顿</strong>1-2s</li>
+<li>-XX:+UseParallelGC</li>
+</ul>
+</li>
+<li>
+Parallel Old 收集器
+<ul>
+<li>Parallel的老版，1.6才有</li>
+<li>多线程和“标记－整理”算法</li>
+</ul>
+</li>
+</ol>
+<h3><span id='1.2.3'>1.2.3 并发收集器</span></h3>
+<ol>
+<li>
+<p>CMS（Concurrent Mark Sweep）收集器</p>
+<ul>
+<li><strong>以获取最短回收停顿时间为目标的收集器</strong></li>
+<li><strong>应用在互联网站或B/S系统的服务端上</strong></li>
+<li><strong>标记清除</strong>：碎片，降低吞吐量</li>
+<li>停顿短，并发收集，</li>
+</ul>
+</li>
+<li>
+<p>G1</p>
+<ul>
+<li><strong>标记压缩</strong>：无碎片</li>
+<li><strong>可预测停顿。让使用者明确指定指定停顿时间？</strong></li>
+<li><strong>它将整个Java堆划分为多个大小相等的独立区域</strong></li>
+<li>停顿短，并发大</li>
+</ul>
+</li>
+</ol>
+<h2><span id='2.'>内存划分</span></h2>
+<p><img src="https://i.imgur.com/dNqyF2v.png" /></p>
+<blockquote>
+<p>java虚拟记得【五片内存】</p>
+</blockquote>
+<pre><code>五片内存：栈 堆  方法区 本地方法栈  寄存器
+两片共享：堆 方法区
+</code></pre>
+
+<ul>
+<li>
+java栈
+<ul>
+<li><font color='red'>线程私有</font></li>
+<li>与线程绑定</li>
+<li><font color='red'>线程请求栈深度超过虚拟机允许深度 -- StackOverFlowError</font></li>
+<li><font color='red'>虚拟机可动态扩容，如果无法申请到足够内存 -- OOMError</font></li>
+<li>
+创建一个线程时就会创建一个对应的java栈
+<ul>
+<li>一个java栈包含多个栈帧</li>
+<li>运行一个方法就创建一个栈帧，栈顶栈帧为活动帧，即正在执行的方法</li>
+<li>栈帧包含局部变量表等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+堆
+<ul>
+<li><font color='red'><strong>线程共享</strong></font></li>
+<li><font color='red'>物理上不连续，逻辑上连续，无法扩容时--OOMError</font></li>
+</ul>
+</li>
+<li>
+<p>方法区</p>
+<ul>
+<li><font color='red'><strong>线程共享</strong></font></li>
+<li>类信息，常量，静态区。。。</li>
+<li><font color='red'>仍占用堆的空间（持久代）</font></li>
+</ul>
+<blockquote>
+<p>运行时常量池</p>
+</blockquote>
+<ul>
+<li>方法区的一部分</li>
+<li><font color='red'>如果常量池无法分配，同样抛出OOMError</font></li>
+</ul>
+</li>
+<li>
+本地方法栈
+<ul>
+<li><font color='red'>线程私有</font></li>
+</ul>
+</li>
+<li>
+pc寄存器
+<ul>
+<li><font color='red'>线程私有</font></li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
